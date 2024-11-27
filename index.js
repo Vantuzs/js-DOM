@@ -10,8 +10,16 @@ console.dir(document);
 */
 
 
-function getAlert(){
-    alert('Hello ther!')
+function getAlert(event){
+    const btn = event.target;
+    let shuv = 0
+    
+    if(btn.style.backgroundColor === 'red'){
+        btn.style.backgroundColor = 'unset'
+    } else {
+        btn.style.backgroundColor = 'red';
+
+    }
 }
 
 const buttonElement = document.getElementById('btn')
