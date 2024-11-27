@@ -20,3 +20,20 @@ buttonElement.addEventListener('click',getAlert);
 // buttonElement.addEventListener('mousemove',)
 // 1 вариант: Зарегестрировали обробник подии натискання миши на кнопку
 // 2 вариант: навесили обробник натискання мыши на кнопку 
+
+
+/* 
+
+Сделайте кнопку, добавте ей id 
+Нпишите функцию которая выводит в консоль "Привет"
+Навесить обробку действия наведения мыши на эту кнопку
+
+*/
+
+function getHello(){
+    console.log('Hello');
+}
+
+const buttonConsole = document.getElementById('button1')
+
+buttonConsole.addEventListener('mouseenter',getHello)
