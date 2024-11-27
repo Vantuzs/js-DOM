@@ -12,7 +12,6 @@ console.dir(document);
 
 function getAlert(event){
     const btn = event.target;
-    let shuv = 0
     
     if(btn.style.backgroundColor === 'red'){
         btn.style.backgroundColor = 'unset'
@@ -45,3 +44,26 @@ function getHello(){
 const buttonConsole = document.getElementById('button1')
 
 buttonConsole.addEventListener('mouseenter',getHello)
+
+
+/* 
+
+При наведении на кнопку НЕЕЕЕЕТ - нужно ее спрятать (displey: 'none')
+
+*/
+
+
+function buttonNoNo(even){
+    // const btn = even.target
+    // btn.style.display = 'none'
+    
+    even.target.removeEventListener('mouseenter', buttonNoNo)
+    console.log('test');
+}
+const buttonNOOOO = document.getElementById('no-btn')
+
+buttonNOOOO.addEventListener('mouseenter',buttonNoNo)
+
+const yesBtn = document.getElementById('yes-btn')
+
+// yesBtn.addEventListener('mouseenter',()=> buttonNOOOO.)
