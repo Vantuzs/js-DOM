@@ -1,30 +1,27 @@
-const form = document.getElementById('name-form');
+const collection = document.getElementsByClassName('paragraph');
 
-form.addEventListener('submit', consoleForm);
-
-function consoleForm(event){
-    event.preventDefault();
-    const form = event.target;
-    const value = form[0].value;
-    console.log(`Hello ${value}`);
-}
-
-function helloUser(event){
-    event.preventDefault();
-    const user = event.target[0].value;
-    alert(`Hello ${user}`);
+for(let i =0; i < collection.length; i++ ){
+    collection[i].style.color = 'green'
 }
 
 
+for(let p of collection){
+    p.style.color = 'red'
+}
+
+const btns =  document.getElementsByTagName('button');
+const arr = [...btns];
 
 
 
+// console.log(btns);
 
-/* 
 
-Создать форму в html
-в форме спрашивать имя пользователя
+function hello(event){
+    event.target.removeEventListener('click',hello)
+    console.log(`Hello user`);
+}
 
-При отправлении формы - Поприветствуйте пользователя
-
-*/
+for(let btn of btns){
+    btn.addEventListener('click',hello)
+}
