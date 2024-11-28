@@ -47,8 +47,15 @@ console.log(btnCollection);
 
 const paragraphCollection = document.querySelectorAll('.paragraph:nth-child(even)');
 
+paragraphCollection[0].innerHTML = 'test'
+
 for(let p of paragraphCollection){
     p.style.backgroundColor = 'yellow';
 }
 
 console.log(paragraphCollection);
+
+
+
+
+
