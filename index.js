@@ -1,61 +1,63 @@
-// const collection = document.getElementsByClassName('paragraph');
+/* 
 
-// for(let i =0; i < collection.length; i++ ){
-//     collection[i].style.color = 'green'
-// }
+Задание: создать конвертёр валют
 
+Декомпозиция
 
-// for(let p of collection){
-//     p.style.color = 'red'
-// }
++ 1. Создать HTML- страницу с формой которая имеет два поля ввода
+одно поле для введения суммы в одной валюте
+другое поле - для выбора валюты в которую мы будем эту сумму конвертировать
 
-// const btns =  document.getElementsByTagName('button');
-// const arr = [...btns];
++ 2. Добавить в форму кнопку "Конвертировать"
 
+3. Написать JS Обробник действия отправки формы:
+- получить значение введённой суммы и выбраной волюты
+- вычислить конвертованую сумму, умноживши введённую сумму на курс обмена выбраной пользователем валюты
+- вывести результат конвертации на страницу для отоброжения результата (innerHTML)
 
+4. Подписать форму на действие "submit", в качестве Лисенера использовать функицю с п. 3
+*/
 
-// // console.log(btns);
-
-
-// function hello(event){
-//     event.target.removeEventListener('click',hello)
-//     console.log(`Hello user`);
-// }
-
-// for(let btn of btns){
-//     btn.addEventListener('click',hello)
-// }
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-const btn = document.querySelector('button');
-// console.log(btn);
-
-const btn2 = document.querySelector('.super-btn');
-// console.log(btn2);
-
-const btn3 = document.querySelector('#btnbtn');
-// console.log(btn3);
-
-const btnCollection = document.querySelectorAll('button');
-console.log(btnCollection);
-
-const paragraphCollection = document.querySelectorAll('.paragraph:nth-child(even)');
-
-paragraphCollection[0].innerHTML = 'test'
-
-for(let p of paragraphCollection){
-    p.style.backgroundColor = 'yellow';
+const CURRENCY = {
+    USD_TO_UAH: 41.58,
+    EUR_TO_UAH: 43.88
 }
 
-console.log(paragraphCollection);
+const converterForm = document.querySelector('#currency-converter-form');
 
+converterForm.addEventListener('submit',convertHandler);
 
+function convertHandler(event){
+    event.preventDefault();
 
+    const amound = Number(document.querySelector('#amound').value);
+    const currency = document.querySelector('#currency').value;
+    
+    let convertedAmount;
 
+    const {USD_TO_UAH: usdCourse, EUR_TO_UAH: eurCourse} = CURRENCY
 
+    switch (currency) {
+        case 'USD': {
+            convertedAmount = amound* usdCourse
+            break;
+        }
+        case 'EUR':{
+            convertedAmount = amound * eurCourse    
+            break;
+        }
+        default: throw new Error('Something problem..............!!!!!!')
+
+    }
+
+    // if(currency === 'USD'){
+    //     convertedAmount = amound* usdCourse
+    // } else if (currency === 'EUR'){
+    //     convertedAmount = amound * eurCourse
+    // } else{
+    //     throw new Error('Something problem..............!!!!!!')
+    // }
+
+    const resultDiv = document.querySelector('#result');
+    resultDiv.innerHTML = `${amound} ${currency} = ${convertedAmount.toFixed(2)} UAH`
+}
