@@ -4,37 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
     <script src="./index.js" defer></script>
     <!-- <script src="./HomeWorke.js" defer></script> -->
 
   </head>
   <body>
-    <h1>Конвертёр валют</h1>
-
-    <form id="currency-converter-form">
-        <label >
-            Сумма конвертации
-            <input type="number" id="amound" min="1" required />
-        </label>
-
-        <label>
-            Выбирете валюту:
-            <select id="currency" required>
-                <option value="USD">USD</option>
-                <option value="EUR">EUR</option>
-            </select>
-        </label>
-
-        <button type="submit">Конвертировать</button>
-
-        <div id="result"></div>
-    </form>
-<!-- Конвертер температуры -->
-    <form id="Foring">
-      <input type="text" id="inpForing" min="1" required />
-      <button id="buttForin" type="submit">Preobrozit</button>
-      <div id="divForin"></div>
-    </form>
-
+    <div id="box" class="bg-color-red">Смени мой цвет нажиманием на кнопку</div>
+    <button class="btn">Сделать Красным</button>
+    <button class="btn">Сделай Зелёным</button>
   </body>
 </html>
