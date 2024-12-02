@@ -12,3 +12,20 @@
 .bg-color-green{
     background-color: green;
 }
+
+
+.white{
+    background-color: white;
+    color: black;
+}
+.darck{
+    background-color: rgb(32, 31, 31);
+    color: rgb(223, 215, 215);
+}
+
+.btnCl{
+    background-color: aquamarine;
+    border: 2px solid yellow;
+    border-radius: 2px;
+    padding: 1px 6px;
+}
