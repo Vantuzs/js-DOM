@@ -61,3 +61,15 @@ function convertHandler(event){
     const resultDiv = document.querySelector('#result');
     resultDiv.innerHTML = `${amound} ${currency} = ${convertedAmount.toFixed(2)} UAH`
 }
+
+// Конвертер температуры
+const foringeitForm = document.querySelector('#Foring');
+
+foringeitForm.addEventListener('submit',foringateFunc)
+
+function foringateFunc(event){
+    event.preventDefault();
+    const value = Number(document.querySelector('#inpForing').value);
+    const result = document.querySelector('#divForin');
+    result.innerHTML = `${value}C = ${value*9/5+32}F`
+}
