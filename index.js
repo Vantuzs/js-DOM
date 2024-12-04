@@ -1,29 +1,22 @@
 /* 
 
-1/ Имеем div
-2. Имеем 5 внопок, на каждой с которой написан цвет
-3. Задача: при нажимании на кнопку, фоновый цвет дива должен изменится на определённый цвет указаный на кнопке
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdrgVj6z0tfzZSheYRKDWVUhB5zIkiZ9vUo6rFSULPgctqkQSmlkwfCDZ1RMHxgFF2XKIlAJb_28QzyZaR5s6zfQ
 
+https://mops.ua/assets/images/statiya/x12-best-hunting-dog-breeds-labrador-retriever.jpeg.pagespeed.ic.NgJcDZ_GE9.jpg
+
+1. В HTML имеем элемент img
+2. В HTML имеем 2 кнопки 
+эти кнопки в data-атрибутах мистять сслыку на певну картинку (адрес картинки)
+
+3. Задача: При нажимании на определённую кнопку должна отобрацится в тезе img определённая этой кнопке картика
 */
 
 
-const button = document.querySelectorAll('button');
-const div = document.querySelector('#root')
+const [btn1,btn2] = document.querySelectorAll('button');
+btn1.addEventListener('click',clickHandler);
+btn2.addEventListener('click',clickHandler);
 
-console.dir(button);
-
-
-// for(let i = 0; i < button.length;i++){
-//     button[i].addEventListener('click',clickHandler);
-// }
-
-for(let btn of button){
-    btn.addEventListener('click', clickHandler);
-}
-
-function clickHandler({target: {dataset: {color},parentNode}}){
-    // const {dataset: {color}} = target
-    // const {parentNode} = target
-    parentNode.style.backgroundColor = color
-    // div.style.backgroundColor = color
+function clickHandler({target: {dataset: {src},parentNode}}){
+    const img = parentNode.children[0]
+    img.setAttribute('src',src)
 }
