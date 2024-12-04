@@ -1,35 +1,29 @@
-const button = document.querySelector('button');
-const div = document.querySelector('#root');
+/* 
 
-function eventHandlerButton(event) {
-    console.log('hi from button handler');
-} 
+1/ Имеем div
+2. Имеем 5 внопок, на каждой с которой написан цвет
+3. Задача: при нажимании на кнопку, фоновый цвет дива должен изменится на определённый цвет указаный на кнопке
 
-const eventHandlerBody = (event) => {
-    console.log('hi from body handler');
-    event.stopPropagation();
-    // таргет - той, на кому спрацювала подія
-    // console.dir(event.currentTarget); // той, кому належав обробник події
-    console.log(this);
-    // Всередині Function Declaration та Function Expression, this -> body
-    // Arrow Function, this -> Window
+*/
+
+
+const button = document.querySelectorAll('button');
+const div = document.querySelector('#root')
+
+console.dir(button);
+
+
+// for(let i = 0; i < button.length;i++){
+//     button[i].addEventListener('click',clickHandler);
+// }
+
+for(let btn of button){
+    btn.addEventListener('click', clickHandler);
 }
 
-button.addEventListener('click', eventHandlerButton, {capture: true});
-// div.addEventListener('click', eventHandler, {capture: true});
-document.body.addEventListener('click', eventHandlerBody, {capture: true});
-// window.addEventListener('click', eventHandler, {capture: true});
-
-
-/*
-3 фази події:
-
-1. Фаза занурення.
-Подія стається на рівні ОС, ОС передає подію браузеру (Window), той передає подію document -> body -> ..... -> елемент, на якому сталася подія
-
-
-2. Фаза цілі.
-Подія досягла елемента, елемент - це таргет
-
-3. Фаза сплиття.
-Подія починає спливати у зворотньому напрямку, тобто від елемента (таргета) до ОС.
+function clickHandler({target: {dataset: {color},parentNode}}){
+    // const {dataset: {color}} = target
+    // const {parentNode} = target
+    parentNode.style.backgroundColor = color
+    // div.style.backgroundColor = color
+}
