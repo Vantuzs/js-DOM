@@ -1,65 +1,43 @@
-/* 
+// const event = new Event('click');
+// console.log(event.composedPath());
 
-1. Имеем div
-2. Имеет две кнопки: на одной написано "Сделать красным", на другой "Сделать зелёным"
+const button = document.querySelector('button');
 
-3. При нажимании на кнопку, фоновый цвет div с п.1 должен измениться на определённый цвет указаный на кнопке
+document.body.addEventListener('click', btnClickHandler);
+
+function btnClickHandler(event) {
+    console.log('hi from button click handler');
+    //console.log(event.composedPath());
+    console.log(event.target); // той, на кому спрацювала подія
+    // target - елемент на якому сталася подія
+    // target - елемент, доя кого буде подія занурюватись
+    console.log(event.currentTarget); // той, кому належить eventListener
+    // currentTarget - елемент, якому належав обробник події
+}
+
+
+// document.body.addEventListener('click', bodyClickHandler);
+
+function bodyClickHandler() {
+    console.log('hi from body click handler');
+}
+
+const clickEvent = new MouseEvent('click');
+
+// button.dispatchEvent(clickEvent);
+
+
+/*
+3 фази події:
+
+1. Фаза занурення.
+Подія стається на рівні ОС, ОС передає подію браузеру (Window), той передає подію document -> body -> ..... -> елемент, на якому сталася подія
+
+
+2. Фаза цілі.
+Подія досягла елемента, елемент - це таргет
+
+3. Фаза сплиття.
+Подія починає спливати у зворотньому напрямку, тобто від елемента (таргета) до ОС.
 
 */
-
-
-const div = document.querySelector('#box');
-console.log(div.classList);
-div.classList.remove('bg-color-red')
-const [red,green] = document.querySelectorAll('.btn');
-
-red.addEventListener('click',redBtnHandler)
-
-function redBtnHandler(event){
-    div.classList.toggle('bg-color-red')
-}
-
-green.addEventListener('click',greenBtnHandler)
-
-function greenBtnHandler(event){
-    div.classList.toggle('bg-color-green')
-}
-
-
-/* 
-
-Сделать кнопку которая будет менять тему сайта
-
-Если вы нажимаете на эту кнопку - на сайте включается тёмный режим (для тега body установите backgroundColor = темно)
-а для текста = color: white;
-
-
-
-
-*/
-
-
-const body = document.querySelector('body');
-const btn = document.querySelector('#darck')
-
-btn.addEventListener('click',bodyFnc)
-
-function bodyFnc(){
-    console.log(body.classList);
-    body.classList.toggle('darck')
-    btn.classList.toggle('btnCl')
-    body.classList.forEach((a)=> {return console.log(a==='darck')})
-    
-    let o;
-    body.classList.forEach((a)=>{
-        if(a==='darck'){
-            return o=true
-        } return o = false})
-    if(o===true){
-        btn.innerHTML = 'Тёмный стиль вкл.'
-        
-    } else{
-        btn.innerHTML = 'Тёмный стиль'
-    }
-    console.log(o);
-}
