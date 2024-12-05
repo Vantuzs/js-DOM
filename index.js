@@ -18,16 +18,32 @@ function clickHandler(event/*{clientX,clientY,target: {children: {box}}}*/){
     event.stopPropagation()
     if(event.currentTarget === event.target){
     const {clientX,clientY,target: {children:{box}}}= event
-    if(clientX>447){
-        box.style.left = `${447}px`
+    box.style.left = `${clientX - (box.offsetWidth/2)}px`
+    box.style.top = `${clientY - (box.offsetHeight/2)}px` 
+
+
+
+    if(clientX>475){
+        box.style.left = `${449}px`
     }else{
-        box.style.left = `${clientX}px`
+        box.style.left = `${clientX - (box.offsetWidth/2)}px`
     }
-    if(clientY>447){
-        box.style.top = `${447}px`    
+    if(clientY>475){
+        box.style.top = `${449}px`    
     } else{
-    box.style.top = `${clientY}px`}
+    box.style.top = `${clientY - (box.offsetHeight/2)}px` }
+    if(clientX<25){
+        box.style.left = `${0}px`
+    }
+    // else{
+    //     box.style.left = `${clientX - (box.offsetWiidth/2)}px`
+    // }
+    if(clientY<25){
+        box.style.top = `${0}px`
+    }
+    // else{
+    //     box.style.top = `${clientY - (box.offsetHeoght/2)}px`
+    // }
 }
-    // console.log(clientX);
-    // console.log(clientY);
-}
+    }
+    // console.log(clientX)  // console.log(clientY)

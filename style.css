@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 #game-field{
     background-color: rgb(178, 244, 244);
     border: 1px solid grey;
