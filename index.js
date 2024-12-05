@@ -18,8 +18,16 @@ function clickHandler(event/*{clientX,clientY,target: {children: {box}}}*/){
     event.stopPropagation()
     if(event.currentTarget === event.target){
     const {clientX,clientY,target: {children:{box}}}= event
-    box.style.left = `${event.clientX}px`
-    box.style.top = `${event.clientY}px`}
+    if(clientX>447){
+        box.style.left = `${447}px`
+    }else{
+        box.style.left = `${clientX}px`
+    }
+    if(clientY>447){
+        box.style.top = `${447}px`    
+    } else{
+    box.style.top = `${clientY}px`}
+}
     // console.log(clientX);
     // console.log(clientY);
 }
