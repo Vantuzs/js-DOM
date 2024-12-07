@@ -34,11 +34,11 @@ const data = [
             id: 7,
         name: 'Tracy',
         description: 'Description for Tracy',
-        profilePicture: 'https://forum-ru-cdn.warthunder.com/original/3X/a/f/af62d76a2d92797df0711e6a94d319490936f3a1.jpeg'
+        profilePicture: '1https://forum-ru-cdn.warthunder.com/original/3X/a/f/af62d76a2d92797df0711e6a94d319490936f3a1.jpeg'
         },{
             id: 8,
         name: 'James',
         description: 'Description for Jame',
-        profilePicture: 'https://forum-ru-cdn.warthunder.com/original/3X/a/f/af62d76a2d92797df0711e6a94d319490936f3a1.jpeg'
+        profilePicture: '1https://forum-ru-cdn.warthunder.com/original/3X/a/f/af62d76a2d92797df0711e6a94d319490936f3a1.jpeg'
         }
 ];
