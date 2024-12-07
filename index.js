@@ -1,32 +1,30 @@
-{/* <article class="card-wrapper">
-        <img class="card-image" src="https://forum-ru-cdn.warthunder.com/original/3X/a/f/af62d76a2d92797df0711e6a94d319490936f3a1.jpeg" alt="John avatar">
+/* <article class="card-wrapper">
+        <div class="image-wrapper">
+          <img class="card-image" src="https://forum-ru-cdn.warthunder.com/original/3X/a/f/af62d76a2d92797df0711e6a94d319490936f3a1.jpeg" alt="John avatar">
+        </div>
         <h2 class="username">John</h2>
         <p class="description">Description for John</p>
-      </article> */}
+      </article> */
      
 
       const root = document.querySelector('#root');
 
       function createUserCard(user){
-        
-        // 1. Создание img
-        const img = document.createElement('img');
-        img.setAttribute('src', user.profilePicture);
-        img.setAttribute('alt', `${user.name} avatar`);
-        img.classList.add('card-image');
+        //1. Создаем обвёртку для картинки
+        const imageWrapper =  createImageWrapper(user);
 
-        // 2. Создание h2
+        // 3. Создание h2
         const h2 = createElement('h2',{classNames: ['username']}, user.name)
-        // 3. Созданеи p
+        // 4. Созданеи p
         const p = createElement('p',{classNames: ['description']}, user.description)
 
-        // 4. Создаем и возвращаем  article в которы вложены созданые img,h2,p
-        return createElement('article',{classNames: ['card-wrapper']},img,h2,p);
+        // 5. Создаем и возвращаем  article в которы вложены созданые img,h2,p
+        return createElement('article',{classNames: ['card-wrapper']},imageWrapper,h2,p);
       }
-
-// My variant
-
-    //  for(let user of data){
+      
+      // My variant
+      
+      //  for(let user of data){
     //     createUserCard(user)
     //  }
 
@@ -43,11 +41,44 @@
     * @returns {HTMLElement}
     *  */ 
    
-
+   
    function createElement(type,{classNames},...childNodes){
     const elem = document.createElement(type);
     elem.classList.add(...classNames);
     elem.append(...childNodes);
 
     return elem;
+  }
+
+   function imageLoadHandler({target}){
+    console.log('image successfully loaded');
+    const perentWrapper = document.querySelector(`#wrapper${target.dataset.id}`)
+    perentWrapper.append(target)
+   }
+  
+   function imageErrorHandler({target}){
+    target.remove()
+   }
+
+   function createUserImage(user){
+        const img = document.createElement('img');
+        img.setAttribute('src', user.profilePicture);
+        img.setAttribute('alt', `${user.name} avatar`);
+        img.dataset.id = user.id
+        img.classList.add('card-image');
+        
+        img.addEventListener('load',imageLoadHandler)
+        img.addEventListener('error',imageErrorHandler)
+        return img
+   }
+
+   function createImageWrapper(user){
+     //1ю создание заглушки
+     const imageWrapper = createElement('div',{classNames: ['image-wrapper']});
+     imageWrapper.setAttribute('id',`wrapper${user.id}`);
+     
+     // 2. Создание заглушки
+     const img = createUserImage(user);
+
+     return imageWrapper
    }
