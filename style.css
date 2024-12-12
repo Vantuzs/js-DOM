@@ -30,3 +30,42 @@
     background-color: black;
     
 }
+
+
+/* //////////////////////////////////////////////////// */
+
+#sec{
+    width: 500px;
+    height: 500px;
+    background-color: black;
+}
+
+.type-text{
+    width: 365px;
+    margin-top: 10px;
+}
+
+#sub-btn{
+   width: 120px;
+   height: 22px;
+   margin-top: 10px;
+   /* padding: 0px; */
+}
+
+.divis{
+    color: wheat;
+    width: 400px;
+}
+
+.pole{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+    flex-wrap: wrap;
+}
+
+.delete{
+    width: 75px;
+    margin-right: 2px;
+    /* height: 20px; */
+}
