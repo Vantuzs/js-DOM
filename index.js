@@ -24,3 +24,11 @@ const timeoutID = setTimeout(func, 2000);
 
 
 func();
+
+
+function helloUser(a){
+    alert('Helo user!')
+    clearTimeout(timeHello)
+}
+
+const timeHello = setTimeout(helloUser,8000);
