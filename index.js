@@ -1,23 +1,26 @@
-const str1 = 'hello';
-const str2 = new String('hello');
+/*
 
 
-// Regexp
+EventLoop - механізм, який керує виконанням коду.
 
-const reg1 = /^[a-zA-Z]{2,5}$/;
-console.log(reg1);
+Коцептуально, ідея Event Loop полягає у тому, щоб не заблокувати основний потік даних.
+Технічно ця концепція реалізується через Google Chrome , який написаний на С++.
 
-const reg2 = new RegExp('^[a-zA-Z]{2,5}$');
-console.log(reg2);
+*/
 
-// Експерементируе: валидируеи имеил через регулярки
 
-const testString = 'sunnyday56@gmail.com';
-const emailRegExp = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/
-emailRegExp.exec(testString); // array
-emailRegExp.test(testString); // true
+// setTimeout();
 
-testString.match(emailRegExp); // array -- сработаетк как exec
+// 1. завантажується сторінка
+// 2. реєструємо таймаут
+// 3. після того, як пройде затримка - запускаємо якусь функцію
 
-let str = 'BLue SKY';
-str.replace(/[A-Z]{3}/,'sky'); // BLue sky
+function func() {
+    console.log(2+2);
+}
+
+// func();
+const timeoutID = setTimeout(func, 2000);
+
+
+func();

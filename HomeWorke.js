@@ -27,7 +27,6 @@ const btnOn = document.querySelector('.btnOn');
 btnOn.addEventListener('click',onOff);
 
 function onOff(event){
-  console.log(event);
   const {target: {previousElementSibling}} = event
   previousElementSibling.classList.toggle('on-off')
 }
