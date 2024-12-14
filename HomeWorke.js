@@ -1,22 +1,33 @@
 //1
-const sec = document.createElement('section');
-sec.setAttribute('id','root');
-sec.innerHTML = 'brush';
-sec.style.color = 'red';
-document.body.append(sec);
+const btn = document.querySelector('#Btn1');
+btn.addEventListener('click',alernWind);
+
+function alernWind(event){
+  alert('Привет тебе клацальщик')
+}
+
 
 //2 
 
-const div = document.querySelector('#divas');
-div.style.backgroundColor = 'violet';
-div.style.color = 'white'
+const ashka = document.querySelector('#ashka');
+
+ashka.addEventListener('click',addBtn);
+
+function addBtn(event){
+  const btn = document.createElement('button');
+  btn.textContent = 'BUTTON!!'
+  document.body.append(btn)
+}
+
 
 //3 
 
-// prompt('Введите свое имя ПЖ');
+const btnOn = document.querySelector('.btnOn');
 
-const prom = prompt('Введите свое имя ПЖ');
+btnOn.addEventListener('click',onOff);
 
-const h1Pr = document.querySelector('.h1-prom');
-
-h1Pr.innerHTML = `Привет Дорогой ${prom}!!!!`
+function onOff(event){
+  console.log(event);
+  const {target: {previousElementSibling}} = event
+  previousElementSibling.classList.toggle('on-off')
+}
