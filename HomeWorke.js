@@ -1,59 +1,22 @@
-
-// JS. Методы примитивов
-
 //1
-const string = 'Meow meow'
-console.log(string.split('').reverse().join(''));
+const sec = document.createElement('section');
+sec.setAttribute('id','root');
+sec.innerHTML = 'brush';
+sec.style.color = 'red';
+document.body.append(sec);
+
 //2 
 
-function deleteDotNumbers(num){
-    return num.toFixed()
-}
+const div = document.querySelector('#divas');
+div.style.backgroundColor = 'violet';
+div.style.color = 'white'
 
-console.log(deleteDotNumbers(15.521312312));
-//3
+//3 
 
-const userName = prompt('Введите имя =)')
-alert(userName.toUpperCase());
-//4 
+// prompt('Введите свое имя ПЖ');
 
-function formatDate(str){
-  const arr= str.split('-');
-  return `${arr[1]}.${arr[2]}.${arr[0]}`
-}
+const prom = prompt('Введите свое имя ПЖ');
 
+const h1Pr = document.querySelector('.h1-prom');
 
-console.log(formatDate('2021-22-09'));
-
-//5
-
-function checkIdentity(str1,str2){
-    if(str1.toUpperCase() === str2.toUpperCase()){
-        return true
-    } 
-    return false
-}
-
-console.log(checkIdentity('Papa','vaPa'));
-
-//6
-function sumOfPositiveNumber(a,b) {
-  if(a<0 || b<0){
-    // должны "выкинуть ошибку"
-    throw new RangeError('Какоето с чисел меньше 0');
-  } 
-  if(typeof a !== 'number' || typeof b !== 'number'){
-    throw new TypeError('Параметры a и b должны быть числами! ')
-  }
-  return console.log(a+b);
-}
-
- try {
-  // прописываем какойто код, ожидая что тут может выйти ошибка
-  sumOfPositiveNumber(1,-2);
- } 
-  catch(error){
-  console.dir(error);
- } 
-
- console.log('Usual code flow');
+h1Pr.innerHTML = `Привет Дорогой ${prom}!!!!`
