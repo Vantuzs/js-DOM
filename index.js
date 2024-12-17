@@ -1,27 +1,16 @@
+// fetch('./user.json')
+// .then((response) => {
+//     return response.json(); // перетворюемо нули и оденички на JS объект
+// })
+// .then((data) => {
+//     console.log(data);
+// });
 
-// JSON
+fetch('https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5')
+.then((response) => {
+    return response.json(); // перетворюемо нули и оденички на JS объект
+})
+.then((data) => {
+    console.log(data);
+});
 
-// stringify - перетворюэ JS обькт в JSON
-// parse - перетворюе JSON в JS обькт
-
-// Сериализация - процес перетворення JS обьктов в JSON
-// Десериализация - процес перетворення JSON в JS объекты
-
-const originalObject = {
-    users: [
-        {
-            name: 'John',
-            age: 25
-        },
-        {
-            name: 'Lucky',
-            age: 33 
-        }
-    ]
-}
-
-const shallowCopy = {...originalObject};
-
-// Глубокая копия (deep copy)
-
-const deepCopy = JSON.parse(JSON.stringify(originalObject));
