@@ -1,22 +1,27 @@
-// const intervalID = setInterval(()=> console.log('LOADING'),2000);
 
-/*
+// JSON
 
-Написати функцію, яка через кожну секунду буде виводити числа в консоль від 1 до 10
-Виконати цю задачу через інтервали
+// stringify - перетворюэ JS обькт в JSON
+// parse - перетворюе JSON в JS обькт
 
-*/
+// Сериализация - процес перетворення JS обьктов в JSON
+// Десериализация - процес перетворення JSON в JS объекты
 
-function count(){
-    let i = 1;
-    const intervalID = setInterval(()=> {
-        console.log(i++);
-        if(i>10){
-            clearInterval(intervalID);
-            console.timeEnd('1');
+const originalObject = {
+    users: [
+        {
+            name: 'John',
+            age: 25
+        },
+        {
+            name: 'Lucky',
+            age: 33 
         }
-    },1000)
+    ]
 }
 
-console.time('1');
-count();;
+const shallowCopy = {...originalObject};
+
+// Глубокая копия (deep copy)
+
+const deepCopy = JSON.parse(JSON.stringify(originalObject));
