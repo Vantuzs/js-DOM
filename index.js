@@ -7,17 +7,25 @@ function loadImage(src){
     h2.id = 'loading-h2';
     h2.append('Loading image...');
     document.body.append(h2);
+
     // 3. Промисыфикация - когда мы обворачиваем какойто асинхронный код в промис, для того что бы забеспечити себе удобную работу
 return new Promise((resolve,reject) =>{
+    //4. Создаём таймаут на 5 секунд для загрузки картинки
+    const timeoutId = setTimeout(()=>{
+    reject('Image ne zagruzitca patamuchta proshlo 5 secunda')        
+    },5000);
+
     //ПОдписываем созданую картинку на событие load
     // Если картинка загрузится - мы резолвим промис с елементом картинки
     img.addEventListener('load',()=>{
+        clearTimeout(timeoutId)
         resolve(img);
     });
 
     //Подписываем картинку на событие error
     // Если катритка не загрузится - мы реджектим с сообщением про ошибку
     img.addEventListener('error',()=>{
+        clearTimeout(timeoutId)
         reject('Image can`t be loaded')
     })
 })
