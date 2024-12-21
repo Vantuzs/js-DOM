@@ -1,87 +1,29 @@
-/* 
-https://api.openweathermap.org/data/2.5/weather?q=Dnipro&appid=f7c576ba3699bdd0b98ddcf196639992&units=metric
+// async
+// await
 
+const URL = 'https://randomuser.me/api'
 
-f7c576ba3699bdd0b98ddcf196639992
-
-// Задача: сделать погодный виджет
-
-Алгоритм решения:
-+ 1.Сдеать вёрстку елементов, которые получают от пользователя данный про Город
-+ 2. Получить данные с АПИ и обработать их(подкотовить данные для отрисовки в вёрстке)
-- 3. Сделать карточку с погодой и отобразить ее  
-*/
-
-const API_KAY = 'f7c576ba3699bdd0b98ddcf196639992';
-const API_BASE = 'https://api.openweathermap.org/data/2.5/weather';
-
-const btn = document.querySelector('.btn');
-
-btn.addEventListener('click',buttonCLickHandler);
-
-function buttonCLickHandler({target}){
-    const selectValue = target.previousElementSibling.value;
-requestAPI(selectValue);
-}
-
-function requestAPI(cityName){
-    //1. Готовим URL
-    const url = `${API_BASE}?q=${cityName}&appid=${API_KAY}&units=metric`
-    console.log(url);
-
-    //2. Делаем запрос
-    fetch(url)
-    .then((response)=>{
-        return response.json()
+function loadDataWithoutAsync(url){
+    const p = fetch(url);
+    const jsonResponse = p.then((response)=>{
+        return response.json();
     })
-    .then((data)=>{
-        // 3. Отрисовываем погоду
-        displayWeather(data)
+    
+    jsonResponse.then((data)=>{
+        console.log(data);
     })
 }
 
+// loadDataWithoutAsync(URL)
 
+// ASYNC / AWAIT
 
-/* 
-</article>
-      <article class="weather">
-        <p>City name: Kyiv</p>
-        <p>tempreature: 7&deg;C</p>
-        <p>Weather description: overcast clouds</p>
-      </article>
-*/
+async function loadDataAsync(url) {
+    const p = fetch(url);
+    const response = await p;
+    const data = await response.json();
 
-function displayWeather(weatherObj){
-    const {name,main:{temp},weather: [{description}]} = weatherObj
-    
-    const article = document.querySelector('#weather-box')
-    article.classList.add('weather-display');
-
-    const city = document.querySelector('#city');
-    city.textContent = name;
-
-    const temperature = document.querySelector('#temp');
-    temperature.textContent = `${temp}°C`
-
-    const desc = document.querySelector('#description');
-    desc.textContent = description
-    
-    // //1. Создаём article
-    // const article = document.createElement('article');
-    // article.classList.add('weather');
-    // article.classList.add('doob');
-    // //2. СОздаём параграф с названием города
-    // const cityName = document.createElement('p');
-    // cityName.append(`City name: ${name}`);
-    // //3. Создаём параграф с температурой
-    // const tempreature = document.createElement('p');
-    // tempreature.append(`Tempreature: ${temp}°C`);
-    // //4. Создаём параграф с описанием погоды
-    // const weatherDescription = document.createElement('p');
-    // weatherDescription.append(`Weather description: ${description}`)
-    // // 5. К артиклу присоединяем параграфи, созданые в п.[2-4]
-    // article.append(cityName,tempreature,weatherDescription);
-    // //6. Находим секцию и присоединяем к ней артикл
-    // const section = document.querySelector('.wrapper');
-    // section.append(article);
+    console.log(data);
 }
+
+loadDataAsync(URL)
