@@ -53,10 +53,15 @@ function requestAPI(cityName){
 
 function displayWeather(weatherObj){
     const {name,main:{temp},weather: [{description}]} = weatherObj
-
+    // const art2 = document.querySelector('.weather');
+    // art.remove()
+    // console.log(art2);
+    // art2.remove();
+    
     //1. Создаём article
     const article = document.createElement('article');
     article.classList.add('weather');
+    article.classList.add('doob');
     //2. СОздаём параграф с названием города
     const cityName = document.createElement('p');
     cityName.append(`City name: ${name}`);
@@ -71,4 +76,7 @@ function displayWeather(weatherObj){
     //6. Находим секцию и присоединяем к ней артикл
     const section = document.querySelector('.wrapper');
     section.append(article);
+    
+    const art3 = document.querySelectorAll('.doob')
+    art3[0].remove()
 }
