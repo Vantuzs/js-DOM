@@ -53,30 +53,35 @@ function requestAPI(cityName){
 
 function displayWeather(weatherObj){
     const {name,main:{temp},weather: [{description}]} = weatherObj
-    // const art2 = document.querySelector('.weather');
-    // art.remove()
-    // console.log(art2);
-    // art2.remove();
     
-    //1. Создаём article
-    const article = document.createElement('article');
-    article.classList.add('weather');
-    article.classList.add('doob');
-    //2. СОздаём параграф с названием города
-    const cityName = document.createElement('p');
-    cityName.append(`City name: ${name}`);
-    //3. Создаём параграф с температурой
-    const tempreature = document.createElement('p');
-    tempreature.append(`Tempreature: ${temp}°C`);
-    //4. Создаём параграф с описанием погоды
-    const weatherDescription = document.createElement('p');
-    weatherDescription.append(`Weather description: ${description}`)
-    // 5. К артиклу присоединяем параграфи, созданые в п.[2-4]
-    article.append(cityName,tempreature,weatherDescription);
-    //6. Находим секцию и присоединяем к ней артикл
-    const section = document.querySelector('.wrapper');
-    section.append(article);
+    const article = document.querySelector('#weather-box')
+    article.classList.add('weather-display');
+
+    const city = document.querySelector('#city');
+    city.textContent = name;
+
+    const temperature = document.querySelector('#temp');
+    temperature.textContent = `${temp}°C`
+
+    const desc = document.querySelector('#description');
+    desc.textContent = description
     
-    const art3 = document.querySelectorAll('.doob')
-    art3[0].remove()
+    // //1. Создаём article
+    // const article = document.createElement('article');
+    // article.classList.add('weather');
+    // article.classList.add('doob');
+    // //2. СОздаём параграф с названием города
+    // const cityName = document.createElement('p');
+    // cityName.append(`City name: ${name}`);
+    // //3. Создаём параграф с температурой
+    // const tempreature = document.createElement('p');
+    // tempreature.append(`Tempreature: ${temp}°C`);
+    // //4. Создаём параграф с описанием погоды
+    // const weatherDescription = document.createElement('p');
+    // weatherDescription.append(`Weather description: ${description}`)
+    // // 5. К артиклу присоединяем параграфи, созданые в п.[2-4]
+    // article.append(cityName,tempreature,weatherDescription);
+    // //6. Находим секцию и присоединяем к ней артикл
+    // const section = document.querySelector('.wrapper');
+    // section.append(article);
 }
