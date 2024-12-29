@@ -1,0 +1,61 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 520px;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px 0px;
+
+}
+
+.image{
+    width: 285px;
+    height: 280px;
+}
+
+.header{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.otzv{
+    width: 248px;
+}
+
+.head-opis{
+    margin: 5px 0px;
+}
+
+.title{
+    margin: 5px 0px;
+    height: 65px;
+}
+
+.prise{
+    display: flex;
+    justify-content: end;
+    
+    
+}
+
+.main{
+    height: 129px;
+}
+
+.sections{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-around;
+}
+
+.categoria{
+    margin: 10px 0px;
+}
